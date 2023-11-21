@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 from rest_framework_simplejwt.tokens import RefreshToken
+from allauth.socialaccount.models import SocialAccount
 
 
 # Create your views here.
@@ -24,6 +25,52 @@ class LoginView(APIView):
             return Response({"message":"success","userdata":serialized.data,"refresh":str(refresh),"access":str(refresh.access_token)})
         else:
             return Response({"message":"invalid credentials"})
+        
+
+
+class GoogleLoginView(APIView):
+    def post(self, request):
+        google_data = request.data.get('googleToken')
+        print(google_data,"??????????????")
+        google_user_id = google_data.get('sub')
+        email = google_data.get('email')
+        print(email,"??????????????")
+        username=google_data.get('name')
+        print(username,"dhoshiiii enta kalla kannil dhoshiiiii")
+        picture=google_data.get('picture')
+        given_name=google_data.get("given_name")
+
+        try:
+            user_profile = UserProfile.objects.get(email=email)
+            print(user_profile)
+        except UserProfile.DoesNotExist:
+            user_profile = UserProfile.objects.create(
+                username=username,
+                name=given_name,
+                email=email,
+                password='',  
+                image=picture, 
+            )
+        print(user_profile,"YEAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
+
+        # # social account for Google already exists aanonn check cheyyan
+        # social_account_obj = SocialAccount.objects.get(
+        #     user=user_profile,
+        #     provider='google',
+        #     uid=google_user_id,
+        # )
+        if user_profile:
+            refresh = RefreshToken.for_user(user_profile)
+            serialized_data = UserProfileSerializer(user_profile)
+            print(serialized_data.data,"karthaveeeeeee ingalu kathoneee")
+            return Response({
+                "message": "success", "userdata": serialized_data.data,"refresh": str(refresh),"access": str(refresh.access_token),
+                })
+        else:
+            return Response({"message":"invalid credentials"})   
+
+
+
         
 
 class SignupView(APIView):
