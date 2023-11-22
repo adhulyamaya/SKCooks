@@ -1,0 +1,80 @@
+/* Home.css */
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  header {
+    background-image: url(../assets/homeheader.jpg);
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 10px;
+    height: 200%;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -5%;
+  }
+  
+  .logo {
+    height: 300px; 
+  }
+
+  .logoz {
+    height: 100px; 
+  }
+  /* Footer.css */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1b1313; /* Set your desired background color */
+    color: #fff; /* Set your desired text color */
+    padding: 10px;
+  }
+  
+  
+  
+  .center-content {
+    flex-grow: 1; /* Allow the center content to grow and take available space */
+    text-align: center;
+  }
+  
+  
+  .header-links button {
+    background-color: rgb(179, 179, 214);
+    color: white;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    margin-bottom: 200px;
+  }
+
+  
+  
+  main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  .home-section {
+    margin-bottom: 20px;
+  }
+  
+  footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .section-images{
+    width: 100%;
+  }

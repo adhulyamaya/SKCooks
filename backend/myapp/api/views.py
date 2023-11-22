@@ -53,16 +53,10 @@ class GoogleLoginView(APIView):
             )
         print(user_profile,"YEAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH")
 
-        # # social account for Google already exists aanonn check cheyyan
-        # social_account_obj = SocialAccount.objects.get(
-        #     user=user_profile,
-        #     provider='google',
-        #     uid=google_user_id,
-        # )
         if user_profile:
             refresh = RefreshToken.for_user(user_profile)
             serialized_data = UserProfileSerializer(user_profile)
-            print(serialized_data.data,"karthaveeeeeee ingalu kathoneee")
+            print(serialized_data.data,"karthaveeeeeee ingalu katholeee")
             return Response({
                 "message": "success", "userdata": serialized_data.data,"refresh": str(refresh),"access": str(refresh.access_token),
                 })
@@ -79,11 +73,11 @@ class SignupView(APIView):
         name=request.data.get('name')
         email=request.data.get('email')
         phone=request.data.get('phone')
-        image=request.data.get('image')
+        # image=request.data.get('image')
         password=request.data.get('password')
 
         userobj = UserProfile.objects.create(username=username,name=name,email=email,
-                                             phone=phone,image=image,password=password)
+                                             phone=phone,password=password)
         print(userobj)
         return Response({"message":"success"})
     
