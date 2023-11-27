@@ -2,6 +2,8 @@ import './App.css';
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loader from './components/additional/Loader'
+import Mentorssignup from './components/mentor/Mentorssignup';
+import MentorLogin from './components/mentor/MentorLogin'
 
 // using LazyLoader for codesplitting - intial loading faster ( lazy() + <Suspense> ) */}
 
@@ -15,6 +17,7 @@ const AdminProfile = lazy(() => import('./components/admin/AdminProfile'));
 const Create = lazy(() => import('./components/admin/Create'));
 const EditUser = lazy(() => import('./components/admin/EditUser'));
 const DeleteUser = lazy(() => import('./components/admin/DeleteUser'));
+
 
 const LoaderWrapper = ({ children }) => {
   const [loading, setLoading] = useState(true);
@@ -47,6 +50,10 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path="/edit/:id" element={<EditUser />} />
             <Route path="/delete/:id" element={<DeleteUser />} />
+
+            {/* {mentor routes} */}
+            <Route path="/mentorsignup" element={<Mentorssignup />} />
+            <Route path="/mentorlogin" element={<MentorLogin />} />
           </Routes>
         </Suspense>
 

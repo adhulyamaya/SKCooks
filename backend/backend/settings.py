@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "myapp",
     "adminapp",
+    "mentorapp",
     "rest_framework",
     "corsheaders",
     "django.contrib.sites",

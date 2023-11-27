@@ -4,6 +4,7 @@ import signupReducer from '../feautures/signupSlice';
 import adminloginReducer from '../feautures/adminSlice';
 import createUserReducer from '../feautures/createSlice';
 import editUserReducer from '../feautures/editSlice'
+import mentorSignupReducer from "../feautures/mentorSlice/mentorSignupSlice"
 
 const store=configureStore({
     reducer:{
@@ -12,6 +13,7 @@ const store=configureStore({
       adminlogin:adminloginReducer,
       createuser:createUserReducer,
       edituser:editUserReducer,
+      mentorsignup:mentorSignupReducer
       
     },
   });
