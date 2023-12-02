@@ -10,14 +10,21 @@ function AdminHome(){
         localStorage.removeItem("accessToken")
         navigate('../adminlogin')
     }
-    const profileSubmit=()=>{
+    const usersSubmit=()=>{
         navigate('../admin-profile')
+
+    }
+    const mentorSubmit=()=>{
+        navigate('../mentor-list')
 
     }
     return(
         <>
         <button onClick={logoutSubmit}>Logout </button>
-        <button onClick={profileSubmit}>admin profile</button>
+        <br />
+        <button onClick={usersSubmit}>USERS</button>
+        <br />
+        <button onClick={profileSubmit}>MENTORS</button>
         </>
     )
 }

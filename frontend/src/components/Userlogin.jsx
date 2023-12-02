@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import './Userlogin.css'; // Import the CSS file for styling
+import Cookies from 'js-cookie';
 
 const Userlogin = () => {
   const dispatch = useDispatch();
@@ -26,8 +27,8 @@ const Userlogin = () => {
           access: res.data.access,
           refresh: res.data.refresh
         };
-        localStorage.setItem("userDetails", JSON.stringify(res.data.userdata));
-        localStorage.setItem("accessToken", JSON.stringify(res.data.access));
+        Cookies.set("userDetails", JSON.stringify(res.data.userdata));
+        Cookies.set("accessToken", JSON.stringify(res.data.access));
         if (res.data.message === "success")
           navigate('../home');
       });

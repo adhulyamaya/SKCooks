@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Loader from './components/additional/Loader'
 import Mentorssignup from './components/mentor/Mentorssignup';
 import MentorLogin from './components/mentor/MentorLogin'
+import Onboard from './components/mentor/Onboard';
 
 // using LazyLoader for codesplitting - intial loading faster ( lazy() + <Suspense> ) */}
 
@@ -54,6 +55,7 @@ function App() {
             {/* {mentor routes} */}
             <Route path="/mentorsignup" element={<Mentorssignup />} />
             <Route path="/mentorlogin" element={<MentorLogin />} />
+            <Route path="/mentoronboard" element={<Onboard />} />
           </Routes>
         </Suspense>
 

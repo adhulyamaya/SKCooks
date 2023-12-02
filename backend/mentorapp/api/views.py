@@ -6,18 +6,17 @@ from rest_framework.response import Response
 from .serializers import *
 from rest_framework_simplejwt.tokens import RefreshToken
 
+
 class MentorSignupView(APIView):
-    def post(self,request):
-        name=request.data.get('name')
-        email=request.data.get('email')
-        password=request.data.get('password')
-        bio=request.data.get('bio')
-        expertise=request.data.get('expertise')
-        experience=request.data.get('experience')
-        
-        mentorobj=MentorProfile.objects.create(name=name,email=email,password=password,bio=bio,expertise=expertise,experience=experience)
-        print(mentorobj,"mentorobject")
-        return Response({"message":"success"})
+    def post(self, request):
+        name = request.data.get('name')
+        password = request.data.get('password')
+        mentorobj = MentorProfile.objects.create(name=name, password=password)
+        mentor_id = mentorobj.id  
+        print(mentorobj, "mentorobject")
+        print(mentor_id)
+        return Response({"message": "success", "mentor_id": mentor_id})
+
     
 
 class MentorLoginView(APIView):
@@ -34,6 +33,34 @@ class MentorLoginView(APIView):
             return Response({"message":"success","userdata":serialized.data,"refresh":str(refresh),"access":str(refresh.access_token)})
         else:
             return Response({"message":"invalid credentials"})
+
+class MentorOnboard(APIView):
+    def post(self,request):
+        mentor_id=request.data.get('mentor_id')
+        print(mentor_id,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+        mentor_profile = MentorProfile.objects.get(id=mentor_id)
+        fullname=request.data.get('fullname')
+        email=request.data.get('email')
+        bio=request.data.get('bio')
+        expertise=request.data.get('expertise')
+        experience=request.data.get('experience')
+        age=request.data.get('age')
+        image=request.data.get('image')
+        address=request.data.get('address')
+        certificate=request.data.get('certificate')
+        mentor_profile.fullname=fullname
+        mentor_profile.email = email
+        mentor_profile.bio = bio
+        mentor_profile.expertise = expertise
+        mentor_profile.experience = experience
+        mentor_profile.age=age
+        mentor_profile.image=image
+        mentor_profile.address=address
+        mentor_profile.certificate=certificate
+        mentor_profile.save()
+        return Response({"message":"success"})
+    
+
 
 
         

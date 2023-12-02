@@ -36,7 +36,6 @@ class GoogleLoginView(APIView):
         email = google_data.get('email')
         print(email,"??????????????")
         username=google_data.get('name')
-        print(username,"dhoshiiii enta kalla kannil dhoshiiiii")
         picture=google_data.get('picture')
         given_name=google_data.get("given_name")
 

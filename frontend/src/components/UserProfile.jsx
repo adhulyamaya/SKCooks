@@ -31,6 +31,7 @@ const UserProfile = () => {
           id:udata.id,
           imageurl:url
         }
+        
         axiosInstance.post("image-upload/",datas).then((response)=>{
           console.log(response.data,"RESPONSE DATAS")
           setUdata(response.data.details)

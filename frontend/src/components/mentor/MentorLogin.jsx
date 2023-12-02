@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../axios/mentoraxios';
+import Cookies from 'js-cookie';
 
 const Userlogin = () => {
   const [name, setname] = useState('');
@@ -20,10 +21,12 @@ const Userlogin = () => {
           access: res.data.access,
           refresh: res.data.refresh
         };
-        localStorage.setItem("userDetails", JSON.stringify(res.data.userdata));
-        localStorage.setItem("accessToken", JSON.stringify(res.data.access));
+        Cookies.set("userDetails", JSON.stringify(res.data.userdata));
+        Cookies.set("accessToken", JSON.stringify(res.data.access));
+        // localStorage.setItem("userDetails", JSON.stringify(res.data.userdata));
+        // localStorage.setItem("accessToken", JSON.stringify(res.data.access));
         if (res.data.message === "success")
-          navigate('../home');
+          navigate('../');
       });
   };
 

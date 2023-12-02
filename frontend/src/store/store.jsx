@@ -3,9 +3,9 @@ import loginReducer from '../feautures/loginslice';
 import signupReducer from '../feautures/signupSlice';
 import adminloginReducer from '../feautures/adminSlice';
 import createUserReducer from '../feautures/createSlice';
-import editUserReducer from '../feautures/editSlice'
-import mentorSignupReducer from "../feautures/mentorSlice/mentorSignupSlice"
-
+import editUserReducer from '../feautures/editSlice';
+import mentorSignupReducer from "../feautures/mentorSlice/mentorSignupSlice";
+import mentorOnboard from "../feautures/mentorSlice/mentorOnboardSlice";
 const store=configureStore({
     reducer:{
       login:loginReducer,
@@ -13,7 +13,8 @@ const store=configureStore({
       adminlogin:adminloginReducer,
       createuser:createUserReducer,
       edituser:editUserReducer,
-      mentorsignup:mentorSignupReducer
+      mentorsignup:mentorSignupReducer,
+      mentoronboard:mentorOnboard
       
     },
   });

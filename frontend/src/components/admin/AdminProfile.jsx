@@ -11,12 +11,10 @@ const AdminProfile = () => {
   const editHandle=(id)=>{
     navigate(`../edit/${id}`)
   }
-
   const homeSubmit=()=>{
     navigate('../home')  
       
 } 
-
   const deleteHandle=(id)=>{
     navigate(`../delete/${id}`)
 
@@ -50,7 +48,7 @@ const handleSearchSubmit=()=>{
 console.log(userdata,"jiiii");
   return (
     <div className='container'>
-      <h1>hello admin</h1>
+      <h1>USERS</h1>
       <Link to="/create" className='btn btn-success my-3'>Create+</Link>
       <input type="text" placeholder='Search'  onChange={(e)=>setSearchData(e.target.value)}/>
       <button onClick={handleSearchSubmit}>Search</button>
