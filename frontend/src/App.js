@@ -5,6 +5,7 @@ import Loader from './components/additional/Loader'
 import Mentorssignup from './components/mentor/Mentorssignup';
 import MentorLogin from './components/mentor/MentorLogin'
 import Onboard from './components/mentor/Onboard';
+import Mentorsmanage from './components/admin/Mentorsmanage';
 
 // using LazyLoader for codesplitting - intial loading faster ( lazy() + <Suspense> ) */}
 
@@ -51,6 +52,7 @@ function App() {
             <Route path="/create" element={<Create />} />
             <Route path="/edit/:id" element={<EditUser />} />
             <Route path="/delete/:id" element={<DeleteUser />} />
+            <Route path="/mentorsmanage" element={<Mentorsmanage/>}/>
 
             {/* {mentor routes} */}
             <Route path="/mentorsignup" element={<Mentorssignup />} />

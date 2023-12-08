@@ -11,7 +11,7 @@ class MentorSignupView(APIView):
     def post(self, request):
         name = request.data.get('name')
         password = request.data.get('password')
-        mentorobj = MentorProfile.objects.create(name=name, password=password)
+        mentorobj = MentorProfile.objects.create(name=name, password=password )
         mentor_id = mentorobj.id  
         print(mentorobj, "mentorobject")
         print(mentor_id)
@@ -57,6 +57,7 @@ class MentorOnboard(APIView):
         mentor_profile.image=image
         mentor_profile.address=address
         mentor_profile.certificate=certificate
+        mentor_profile.is_approved = False
         mentor_profile.save()
         return Response({"message":"success"})
     

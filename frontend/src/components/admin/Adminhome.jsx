@@ -14,8 +14,9 @@ function AdminHome(){
         navigate('../admin-profile')
 
     }
-    const mentorSubmit=()=>{
-        navigate('../mentor-list')
+    const mentorsSubmit=()=>{
+        navigate('../mentorsmanage')
+        console.log(navigate)
 
     }
     return(
@@ -24,7 +25,7 @@ function AdminHome(){
         <br />
         <button onClick={usersSubmit}>USERS</button>
         <br />
-        <button onClick={profileSubmit}>MENTORS</button>
+        <button onClick={mentorsSubmit}>MENTORS</button>
         </>
     )
 }

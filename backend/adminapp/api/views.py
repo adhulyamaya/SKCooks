@@ -2,10 +2,12 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from adminapp.models import *
 from myapp.models import *
+from mentorapp.models import *
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import *
 from myapp.api.serializers import *
+from mentorapp.api.serializers import *
 from rest_framework_simplejwt.tokens import RefreshToken
 
 class AdminLoginView(APIView):
@@ -29,6 +31,14 @@ class AdminprofileView(APIView):
         if userobjects:
             serializer=UserProfileSerializer(userobjects,many=True)
             return Response({'message':'passed','userdata':serializer.data})
+        
+class MentorlistView(APIView):
+    def get(self,request):
+        mentorobj=MentorProfile.objects.all()
+        if mentorobj:
+            serializer=MentorProfileSerializer(mentorobj,many=True)
+            return Response({'message':'passed','userdata':serializer.data}) 
+
 
 
     
