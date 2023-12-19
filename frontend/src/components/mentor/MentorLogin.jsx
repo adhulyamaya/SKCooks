@@ -1,48 +1,60 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axiosInstance from '../../axios/mentoraxios';
-import Cookies from 'js-cookie';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axiosInstance from "../../axios/mentoraxios";
+import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 const Userlogin = () => {
-  const [name, setname] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setname] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
   const loginSubmit = () => {
     const data = {
       name: name,
-      password: password
+      password: password,
     };
 
-    axiosInstance.post('mentorlogin/', data)
-      .then((res) => {
-        console.log(res.data);
-        const tokens = {
-          access: res.data.access,
-          refresh: res.data.refresh
-        };
-        Cookies.set("userDetails", JSON.stringify(res.data.userdata));
-        Cookies.set("accessToken", JSON.stringify(res.data.access));
-        // localStorage.setItem("userDetails", JSON.stringify(res.data.userdata));
-        // localStorage.setItem("accessToken", JSON.stringify(res.data.access));
-        if (res.data.message === "success")
-          navigate('../');
-      });
+    axiosInstance.post("mentorlogin/", data).then((res) => {
+      console.log(res.data);
+      const tokens = {
+        access: res.data.access,
+        refresh: res.data.refresh,
+      };
+      Cookies.set("userDetails", JSON.stringify(res.data.userdata));
+      Cookies.set("accessToken", JSON.stringify(res.data.access));
+      // localStorage.setItem("userDetails", JSON.stringify(res.data.userdata));
+      // localStorage.setItem("accessToken", JSON.stringify(res.data.access));
+      if (res.data.message === "success") navigate("../");
+    });
   };
 
   return (
-    <div className="background-container">
-      <div className="login-container">
-        <div className="login-form">
-          <h1>Login</h1>
-          <input placeholder='name' value={name} onChange={(e) => setname(e.target.value)} />
-          <input placeholder='password' type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-          <button className="login-button" onClick={loginSubmit}>
-            Login
-          </button>
-          {/* <p>Already have an account? <Link to="/">SignUp here</Link></p> */}
-        </div>
+    <div className="wrapper">
+      <h2>MENTOR LOGIN </h2><br />
+      <div className="form-field">
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setname(e.target.value)}
+        />
       </div>
+      <div className="form-field">
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div><br />
+      <button className="btn" onClick={loginSubmit}>
+        Login
+      </button>
+      <br /><br />
+      <p>
+        Don't have an account? <Link to="/mentorsignup">Sign Up here</Link>
+      </p>
     </div>
   );
 };

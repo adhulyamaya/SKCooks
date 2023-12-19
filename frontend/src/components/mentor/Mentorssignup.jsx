@@ -4,6 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../axios/mentoraxios';
+import { Link } from 'react-router-dom'; 
+import './signup.css'
+
 const Mentorssignup= () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -29,12 +32,30 @@ const Mentorssignup= () => {
           })
   }
   return (
-    <div>
-        <h1>mentorSignup</h1>
-                <input type="text" placeholder='Name' onChange={(e) => dispatch(changeName(e.target.value))} /><br />
-                <input type="password" placeholder='password' onChange={(e) => dispatch(changePassword(e.target.value))}/>
-                <button onClick={mentorsignupSubmit}>mentor Sign Up </button>
-                </div>
-  )
+    <div className="wrapper">
+      <h2 >MENTOR SIGNUP</h2><br /><br />
+      <h4 >Welcome</h4>
+      <div className="form-field">
+        <input
+          type="text"
+          placeholder="Name"
+          onChange={(e) => dispatch(changeName(e.target.value))}
+        />
+      </div>
+      <div className="form-field">
+        <input
+          type="password"
+          placeholder="Password"
+          onChange={(e) => dispatch(changePassword(e.target.value))}
+        />
+      </div><br />
+      <button className="btn" onClick={mentorsignupSubmit}>
+         Sign Up
+      </button><br /><br />
+      <p>
+                Already have an account? <Link to="/mentorlogin">Login here</Link>
+              </p>
+    </div>
+  );
 }
 export default Mentorssignup

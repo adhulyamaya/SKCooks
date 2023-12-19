@@ -33,22 +33,50 @@ const Usersignup = () => {
 
     return (
         <div className="background-container">
-            <div className="signup-container">
-                <img src={logo} alt="Logo" className="signup-logo" />
-                <div className="signup-form">
-                    <input type="text" placeholder='Username' onChange={(e) => dispatch(changeUsername(e.target.value))} /><br />
-                    <input type="text" placeholder='Name' onChange={(e) => dispatch(changeName(e.target.value))} /><br />
-                    <input type="text" placeholder='Email' onChange={(e) => dispatch(changeEmail(e.target.value))} /><br />
-                    <input type="number" placeholder='Phone' onChange={(e) => dispatch(changePhone(e.target.value))} /><br />
-                    <input type="password" placeholder='Password' onChange={(e) => dispatch(changePassword(e.target.value))} /><br />
-                    <button className="signup-button" onClick={signupSubmit}>
-                        Signup
-                    </button>
-                    <p>Already have an account? <Link to="/login">Login here</Link></p>
-                </div>
+          <div className="signup-container">
+            <img src={logo} alt="Logo" className="signup-logo" />
+            <div className="signup-form">
+              <input
+                type="text"
+                placeholder="Username"
+                onChange={(e) => dispatch(changeUsername(e.target.value))}
+              />
+              <br />
+              <input
+                type="text"
+                placeholder="Name"
+                onChange={(e) => dispatch(changeName(e.target.value))}
+              />
+              <br />
+              <input
+                type="text"
+                placeholder="Email"
+                onChange={(e) => dispatch(changeEmail(e.target.value))}
+              />
+              <br />
+              <input
+                type="number"
+                placeholder="Phone"
+                onChange={(e) => dispatch(changePhone(e.target.value))}
+              />
+              <br />
+              <input
+                type="password"
+                placeholder="Password"
+                onChange={(e) => dispatch(changePassword(e.target.value))}
+              />
+              <br />
+              <button className="signup-button" onClick={signupSubmit}>
+                Signup
+              </button>
+              <br />
+              <p>
+                Already have an account? <Link to="/login">Login here</Link>
+              </p>
             </div>
+          </div>
         </div>
-    );
+      );
 };
 
 export default Usersignup;
