@@ -19,8 +19,35 @@ useEffect(()=>{
     console.log(res.data);
     setUserdata(res.data.userdata)
   })
+  .catch((error) => {
+    console.error(error);
+});
 
 },[])
+
+const handleApproval = (mentorId, isApproved) => {
+  axiosIns.post('mentor-approval/', { mentor_id: mentorId, is_approved: isApproved })
+      .then((res) => {
+        if (res.data.message === "success") {
+          console.log(res.data.message)
+            
+        }
+          // button change avunna means approved,rejected ezhuthanam
+          console.log(res.data.message);
+          // Reloadnulla enthelum ezhuthanam 
+          axiosIns.get('admin-mentor-list/')
+              .then((res) => {
+                  setUserdata(res.data.userdata);
+              })
+              .catch((error) => {
+                  console.error(error);
+              });
+      })
+      // .catch((error) => {
+      //     // Handle error
+      //     console.error(error);
+      // });
+};
 
   return (
     <div className='container'>
@@ -44,7 +71,12 @@ useEffect(()=>{
               <td>{item.email}</td>
               <td>{item.address}</td>
               <td>{item.image}</td>
+              <td>{item.image}</td>
               <td>{item.certificate}</td>
+              <td>
+                   <button onClick={() => handleApproval(item.id, true)}>Approve</button>
+                   <button onClick={() => handleApproval(item.id, false)}>Reject</button>
+              </td>
             </tr>
             ))}
             </thead>

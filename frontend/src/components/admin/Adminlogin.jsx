@@ -25,6 +25,7 @@ const Adminlogin = () => {
             localStorage.setItem("adminDetails",JSON.stringify(res.data.userdata))
             localStorage.setItem("accessToken",JSON.stringify(res.data.access))
             if(res.data.message === "success"){
+              console.log(res.data.message,"..........")
                 navigate('../adminhome')
             }
            

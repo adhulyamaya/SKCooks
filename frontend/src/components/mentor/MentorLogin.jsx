@@ -25,7 +25,8 @@ const Userlogin = () => {
       Cookies.set("accessToken", JSON.stringify(res.data.access));
       // localStorage.setItem("userDetails", JSON.stringify(res.data.userdata));
       // localStorage.setItem("accessToken", JSON.stringify(res.data.access));
-      if (res.data.message === "success") navigate("../");
+      if (res.data.message === "success") 
+      navigate("mentordashboard/");
     });
   };
 
