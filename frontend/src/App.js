@@ -11,6 +11,8 @@ import Team from "./components/team/Team";
 import Pricing from "./components/pricing/Pricing";
 import Blog from "./components/blog/Blog";
 import Contact from "./components/contact/Contact";
+import MentorDashboard from "./components/mentor/MentorDashboard";
+import ClassManagement from "./components/mentor/ClassManagement";
 
 // using LazyLoader for codesplitting - intial loading faster ( lazy() + <Suspense> ) */}
 
@@ -70,11 +72,14 @@ function App() {
             <Route path="/edit/:id" element={<EditUser />} />
             <Route path="/delete/:id" element={<DeleteUser />} />
             <Route path="/mentorsmanage" element={<Mentorsmanage />} />
+            
 
             {/* {mentor routes} */}
             <Route path="/mentorsignup" element={<Mentorssignup />} />
             <Route path="/mentorlogin" element={<MentorLogin />} />
             <Route path="/mentoronboard" element={<Onboard />} />
+            <Route path="/mentordashboard" element={<MentorDashboard />} />
+            <Route path="/classmanagement" element={<ClassManagement />} />
           </Routes>
         </Suspense>
       </div>

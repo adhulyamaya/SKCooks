@@ -26,7 +26,8 @@ const Userlogin = () => {
       // localStorage.setItem("userDetails", JSON.stringify(res.data.userdata));
       // localStorage.setItem("accessToken", JSON.stringify(res.data.access));
       if (res.data.message === "success") 
-      navigate("mentordashboard/");
+        navigate("/mentordashboard");
+
     });
   };
 
