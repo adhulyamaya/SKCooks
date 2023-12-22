@@ -11,7 +11,7 @@ import Team from "./components/team/Team";
 import Pricing from "./components/pricing/Pricing";
 import Blog from "./components/blog/Blog";
 import Contact from "./components/contact/Contact";
-import MentorDashboard from "./components/mentor/MentorDashboard";
+import MentorDashboard from "./components/mentor/mentorDashboard";
 import ClassManagement from "./components/mentor/ClassManagement";
 
 // using LazyLoader for codesplitting - intial loading faster ( lazy() + <Suspense> ) */}
@@ -47,9 +47,9 @@ function App() {
           <Routes>
             {/* user routes */}
             <Route path="/login" element={<Userlogin />} />
-            <Route path="/" element={<Usersignup />} />
+            <Route path="/signup" element={<Usersignup />} />
             <Route
-              path="/home"
+              path="/"
               element={
                 <LoaderWrapper>
                   <Home />

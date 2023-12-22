@@ -30,7 +30,7 @@ const Userlogin = () => {
         Cookies.set("userDetails", JSON.stringify(res.data.userdata));
         Cookies.set("accessToken", JSON.stringify(res.data.access));
         if (res.data.message === "success")
-          navigate('../home');
+          navigate('../');
       });
   };
 
@@ -64,7 +64,7 @@ const Userlogin = () => {
                   localStorage.setItem('userDetails', JSON.stringify(res.data.userdata));
                   localStorage.setItem('accessToken', JSON.stringify(res.data.access));
                   if (res.data.message === 'success') {
-                    navigate('../home');
+                    navigate('../');
                   }
                 })
                 .catch((err) => {
@@ -76,7 +76,7 @@ const Userlogin = () => {
             }}
           />
           </div><br />
-          <p>Already have an account? <Link to="/">SignUp here</Link></p>
+          <p>Already have an account? <Link to="/signup">SignUp here</Link></p>
         </div>
       </div>
     </div>

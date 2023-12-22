@@ -36,6 +36,7 @@ const Usersignup = () => {
           <div className="signup-container">
             <img src={logo} alt="Logo" className="signup-logo" />
             <div className="signup-form">
+              <p>Are you a mentor {'>>>'}<Link to="/mentorlogin"> Login here</Link></p  >
               <input
                 type="text"
                 placeholder="Username"

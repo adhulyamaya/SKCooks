@@ -13,25 +13,25 @@ const Header = () => {
         <nav className='flexSB'>
           <ul className={click ? "mobile-nav" : "flexSB"} onClick={() => setClick(false)}>
             <li>
-              <Link to='/' style={{ color: 'black' }}>Home</Link>
+              <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/courses' style={{ color: 'black' }}>All Courses</Link>
+              <Link to='/courses' >All Courses</Link>
             </li>
             <li>
-              <Link to='/about' style={{ color: 'black' }}>About</Link>
+              <Link to='/about' >About</Link>
             </li>
             <li>
-              <Link to='/team' style={{ color: 'black' }}>Team</Link>
+              <Link to='/team' >Team</Link>
             </li>
             <li>
-              <Link to='/pricing' style={{ color: 'black' }}>Pricing</Link>
+              <Link to='/pricing' >Pricing</Link>
             </li>
             <li>
-              <Link to='/journal' style={{ color: 'black' }}>Journal</Link>
+              <Link to='/journal' >Journal</Link>
             </li>
             <li>
-              <Link to='/contact' style={{ color: 'black' }}>Contact</Link>
+              <Link to='/contact' >Contact</Link>
             </li>
           </ul>
           <div className='start'>

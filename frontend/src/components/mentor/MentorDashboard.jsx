@@ -1,28 +1,21 @@
-import React from 'react'
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
+import MentorHeaders from "./MentorHeader";
 
 function MentorDashboard() {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
 
-    const logoutSubmit=()=>{
-        Cookies.remove("userDetails")
-        Cookies.remove("accessToken")
-        navigate('../mentorlogin')
-    }
-    const classmanagement=()=>{
-        navigate('../classmanagement')
-
-    }
+  const classmanagement = () => {
+    navigate("../classmanagement");
+  };
   return (
-    <div>WELCOME MENTOR
-
+    <>
+      <MentorHeaders />
+      <div>
         <button onClick={classmanagement}>classmanagement</button>
-        <button onClick={logoutSubmit}>logout</button>
-    </div>
-  )
+      </div>
+    </>
+  );
 }
 
-export default MentorDashboard
-
-
+export default MentorDashboard;

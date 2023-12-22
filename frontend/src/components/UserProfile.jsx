@@ -43,7 +43,7 @@ const UserProfile = () => {
       })
     }
     const homeSubmit=()=>{
-        navigate('../home')
+        navigate('../')
     } 
   return (
     <div>

@@ -28,7 +28,7 @@ const Hero = () => {
     <>
       <section className='hero'>
         <div className='container'>
-          <div className='row' style={{ color: 'black' }}>
+          <div className='row' style={{ color: 'white' }}>
             <Heading  subtitle='WELCOME TO SK-Cooks' title='Best Online Culinary Expertise' />
             <p style={{ color: 'darkblack', fontWeight: 'bold' }}>SK Cooks trains {headerText} <br/> Offering courses in classic and next-gen technique <br/> Join our Live Class</p>
             <div className='button'>
