@@ -46,7 +46,6 @@ const EditUser = () => {
         console.log(res.data,"checkinggggggg");
         navigate('../admin-profile/')
     })
-
    }
 
    const {id}= useParams()

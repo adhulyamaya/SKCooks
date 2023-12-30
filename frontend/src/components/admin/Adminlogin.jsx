@@ -17,7 +17,7 @@ const Adminlogin = () => {
         }
         axiosInstance.post('adminlogin/',datas)
         .then((res)=>{
-            console.log(res.data)
+            console.log(res.data,"whyyyyyyyyyyyyyyyyyyyyyyyy")
             const tokens={
                 access:res.data.access,
                 refresh:res.data.refresh

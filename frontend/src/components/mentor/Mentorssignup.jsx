@@ -1,5 +1,5 @@
 import React from 'react'
-import {changeName,changePassword,} from '../../feautures/mentorSlice/mentorSignupSlice'
+import {changeName,changePassword,setMentorId} from '../../feautures/mentorSlice/mentorSignupSlice'
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -19,9 +19,16 @@ const Mentorssignup= () => {
       }
       console.log(datas, "mentor nta data aaa ");
 
+
       axiosInstance.post('mentorsignup/', datas)
           .then((res) => {
+
+            console.log(res.data, "mentor nta data aaa ");
             const mentorId = res.data.mentor_id;
+
+            
+          dispatch(setMentorId(mentorId));
+          console.log(mentorId,"from set mentor id") 
             
               console.log('Mentor ID:', mentorId);
               console.log(res,"response from BACKEND");
@@ -31,6 +38,7 @@ const Mentorssignup= () => {
               }
           })
   }
+
   return (
     <div className="wrapper">
       <h2 >MENTOR SIGNUP</h2><br /><br />

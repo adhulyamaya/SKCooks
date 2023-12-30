@@ -7,3 +7,4 @@ from django.contrib import admin
 from mentorapp.models import *
 
 admin.site.register(MentorProfile)
+admin.site.register(Class )

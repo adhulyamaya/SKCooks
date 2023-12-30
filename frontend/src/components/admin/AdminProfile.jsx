@@ -5,6 +5,7 @@ import axiosIns from '../../axios/adminaxios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button } from 'bootstrap'
 
+
 const AdminProfile = () => {
   const navigate = useNavigate()
 

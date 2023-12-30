@@ -18,6 +18,8 @@ function AdminHome(){
         navigate('../mentorsmanage')
         console.log(navigate)
 
+        
+
     }
     return(
         <>

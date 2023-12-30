@@ -13,6 +13,7 @@ const Userlogin = () => {
   const dispatch = useDispatch();
   const login = useSelector((state) => state.login);
   const navigate = useNavigate();
+  const [error, setError] = React.useState(null)
 
   const loginSubmit = () => {
     const datas = {
@@ -31,6 +32,10 @@ const Userlogin = () => {
         Cookies.set("accessToken", JSON.stringify(res.data.access));
         if (res.data.message === "success")
           navigate('../');
+      })
+      .catch((error) => {
+        console.error(error);
+        setError('Invalid credentials. Please check your username and password.');
       });
   };
 
@@ -44,6 +49,7 @@ const Userlogin = () => {
           <button className="login-button" onClick={loginSubmit}>
             Login
           </button>
+          {error && <p className="error-message">{error}</p>}
 
           <div className="google-login-wrapper">
           <GoogleLogin

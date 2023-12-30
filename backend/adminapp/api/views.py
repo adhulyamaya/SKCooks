@@ -14,6 +14,7 @@ class AdminLoginView(APIView):
     def post(self, request):
         username = request.data.get('username')
         password = request.data.get('password')
+        
 
         adminobj=AdminProfile.objects.get(username=username,password=password)
         if adminobj:
