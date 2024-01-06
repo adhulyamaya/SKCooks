@@ -130,6 +130,13 @@ class EditingClassView(APIView):
         serialized = ClassSerializer(class_obj)
         return Response({"message": "success", "data": serialized.data})
 
-
+class DeleteView(APIView):
+    def post(self,request,id):
+        try:
+            classobj=Class.objects.get(id=id)
+            classobj.delete()
+            return Response({"message":"success"})
+        except:
+            return Response({"message":"failed"})
 
 

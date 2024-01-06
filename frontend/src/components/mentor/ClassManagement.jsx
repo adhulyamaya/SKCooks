@@ -7,20 +7,16 @@ import axiosInstance from '../../axios/mentoraxios';
 
 function ClassManagement() {
   const navigate=useNavigate()
-  
-  // const addClassSubmit=()=>{
-  //   navigate('../addclass')
-  // }
 
   const [userdata,setUserdata]=useState([])
-  // const editHandle=()=>{
-  //   navigate("editclass/")
-  // }
 
   const editHandle = (id) => {
     navigate(`editclass/${id}`);
   };
-  
+  const deleteHandle=(id)=>{
+    navigate(`deleteclass/${id}`);
+
+  };
 
   useEffect(()=>{
     axiosInstance.get("classdetails/")
@@ -58,21 +54,15 @@ function ClassManagement() {
                 <td>{item.syllabus}</td>
                 <td>{item.course_description}</td>
                 <td>{item.price}</td>
-              <button onClick={()=>editHandle(item.id)} className='btn btn-sm btn-primary'>EDIT</button>
-              {/* <button onClick={()=>deleteHandle(item.id)} className='btn btn-sm btn-danger ms-2'>DELETE</button> */}
-              
-
+              <td><button onClick={()=>editHandle(item.id)} className='btn btn-sm btn-primary'>EDIT</button></td>
+              <td><button onClick={()=>deleteHandle(item.id)} className='btn btn-sm btn-danger ms-2'>DELETE</button></td>
               </tr>
-
             ))}
-
-
           </thead>
         </table>        
         </div>
     </>
     </div>
   )
-
 }
 export default ClassManagement
