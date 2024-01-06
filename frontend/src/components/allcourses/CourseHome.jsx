@@ -13,4 +13,5 @@ const CourseHome = () => {
   )
 }
 
+
 export default CourseHome

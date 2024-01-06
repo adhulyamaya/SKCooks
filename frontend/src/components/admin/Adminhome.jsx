@@ -19,6 +19,7 @@ function AdminHome(){
         console.log(navigate)
 
         
+        
 
     }
     return(

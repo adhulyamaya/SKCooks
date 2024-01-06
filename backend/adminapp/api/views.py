@@ -40,7 +40,16 @@ class MentorlistView(APIView):
             serializer=MentorProfileSerializer(mentorobj,many=True)
             return Response({'message':'passed','userdata':serializer.data}) 
 
-
+class ClasslistView(APIView):
+    def get(self,request):
+        
+        classobj=Class.objects.all()
+        
+        print (classobj,"all the datils for classmanagement")
+        if classobj:
+            serializer=ClassSerializer(classobj,many=True)
+            return Response({'message':'passed','classdata':serializer.data}) 
+        
 class MentorApprovalView(APIView):
     def post(self, request):
         mentor_id = request.data.get('mentor_id')

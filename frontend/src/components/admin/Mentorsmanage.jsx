@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import mentoraxios from '../../axios/mentoraxios'
 import axiosIns from '../../axios/adminaxios'
-import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button } from 'bootstrap'
 
 const Mentorsmanage = () => {
