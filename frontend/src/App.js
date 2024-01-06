@@ -14,6 +14,7 @@ import Contact from "./components/contact/Contact";
 import MentorDashboard from "./components/mentor/mentorDashboard";
 import ClassManagement from "./components/mentor/ClassManagement";
 import AddClass from "./components/mentor/AddClass";
+import EditClass from "./components/mentor/EditClass"
 
 // using LazyLoader for codesplitting - intial loading faster ( lazy() + <Suspense> ) */}
 
@@ -82,6 +83,9 @@ function App() {
             <Route path="/mentordashboard" element={<MentorDashboard />} />
             <Route path="/classmanagement" element={<ClassManagement />} />
             <Route path ="/addclass" element={<AddClass/>}/>
+            {/* <Route path="/editclass/:id" element={<EditClass />} /> */}
+            <Route path="/classmanagement/editclass/:id" element={<EditClass />} />
+
           </Routes>
         </Suspense>
       </div>

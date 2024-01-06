@@ -66,30 +66,10 @@ class MentorOnboard(APIView):
         mentor_profile.save()
         return Response({"message":"success"})
     
-
-
-
-# class CreateclassView(APIView):
-#     def post(self,request):
-#         mentor_id=request.data.get('mentorId')
-#         print(mentor_id,"is it come")
-#         class_name=request.data.get("classname")
-#         print(class_name,"classname vann??????????????????????????????")
-#         course_description=request.data.get('description')
-#         price=request.data.get('price')
-#         syllabus=request.data.get('syllabus')
-
-#         mentor = MentorProfile.objects.get(id=mentor_id)
-#         classobj=Class.objects.create(mentor=mentor,class_name=class_name,course_description=course_description,
-#                                   price=price,syllabus=syllabus )
-#         print(classobj,"/////////////////////////////////")
-#         print(classobj,"is that created?????")
-#         serialized=MentorProfileSerializer(classobj)
-#         return Response ({"message":"success","data":serialized.data})
     
 class CreateclassView(APIView):
     def post(self, request):
-        mentor_id = request.data.get('mentorId')  # Update field name
+        mentor_id = request.data.get('mentorId')  
         class_name = request.data.get("classname")
         course_description = request.data.get('description')
         price = request.data.get('price')
@@ -108,12 +88,48 @@ class CreateclassView(APIView):
             syllabus=syllabus
         )
 
-        # serialized = MentorProfileSerializer(classobj)
-        return Response({"message": "success"})
-
+        serialized = ClassSerializer(classobj)
+        return Response({"message": "success", "data": serialized.data})
+    
+class ClassdetailsView(APIView):
+    def get(self,get):
+        classdetails=Class.objects.all()
+        print(classdetails,"enth kunthann")
+        if classdetails:
+            serializer=ClassSerializer(classdetails,many=True)
+            return Response({'message':'passed','userdata':serializer.data})
         
 
-        
+class GetEditView(APIView):
+    def get(self,request,id):
+        userobj=Class.objects.get(id=id)
+        print(userobj,"hi im that datas")
+
+        serialized=ClassSerializer(userobj)
+        return Response({"message":"success","data":serialized.data})
+
+            
+
+class EditingClassView(APIView):
+    def post(self, request):
+        id = request.data.get('id')
+        classname = request.data.get('classname')
+        description = request.data.get('description')
+        price = request.data.get('price')
+        syllabus = request.data.get('syllabus')
+
+        class_obj = Class.objects.get(id=id)
+
+        class_obj.class_name = classname
+        class_obj.course_description = description
+        class_obj.price = price
+        class_obj.syllabus = syllabus
+
+        class_obj.save()
+
+        serialized = ClassSerializer(class_obj)
+        return Response({"message": "success", "data": serialized.data})
+
 
 
 

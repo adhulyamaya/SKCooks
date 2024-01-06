@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from mentorapp.models import MentorProfile
+from mentorapp.models import MentorProfile,Class
 
 
 class MentorProfileSerializer(serializers.ModelSerializer):
@@ -8,4 +8,7 @@ class MentorProfileSerializer(serializers.ModelSerializer):
         fields ='__all__'
 
        
-        
+class ClassSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Class
+        fields ='__all__'        

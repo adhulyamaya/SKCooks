@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import axiosInstance from '../../axios/axios';
 import axiosIns from '../../axios/adminaxios'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button } from 'bootstrap'
+
 
 
 const AdminProfile = () => {
@@ -20,9 +20,10 @@ const AdminProfile = () => {
     navigate(`../delete/${id}`)
 
   }
+  
 
 const [userdata,setUserdata]=useState([])
-const [searchData,setSearchData]=useState("")
+// const [searchData,setSearchData]=useState("")
 
 
 useEffect(()=>{
@@ -35,24 +36,24 @@ useEffect(()=>{
 
 },[])
 
-const handleSearchSubmit=()=>{
-  const datas={
-    value:searchData
-  }
-  axiosInstance.post("searchuser/",datas).then((response)=>{
-    setUserdata(response.data.data)
-  }).catch((error)=>{
-    alert(error)
-  })
-}
+// const handleSearchSubmit=()=>{
+//   const datas={
+//     value:searchData
+//   }
+//   axiosInstance.post("searchuser/",datas).then((response)=>{
+//     setUserdata(response.data.data)
+//   }).catch((error)=>{
+//     alert(error)
+//   })
+// }
 
 console.log(userdata,"jiiii");
   return (
     <div className='container'>
       <h1>USERS</h1>
       <Link to="/create" className='btn btn-success my-3'>Create+</Link>
-      <input type="text" placeholder='Search'  onChange={(e)=>setSearchData(e.target.value)}/>
-      <button onClick={handleSearchSubmit}>Search</button>
+      {/* <input type="text" placeholder='Search'  onChange={(e)=>setSearchData(e.target.value)}/> */}
+      {/* <button onClick={handleSearchSubmit}>Search</button> */}
       {/* <table className='table'> */}
       <table style={{ borderCollapse: 'collapse', width: '100%' }}> 
         <thead>

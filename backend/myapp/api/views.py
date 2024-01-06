@@ -55,7 +55,7 @@ class GoogleLoginView(APIView):
         if user_profile:
             refresh = RefreshToken.for_user(user_profile)
             serialized_data = UserProfileSerializer(user_profile)
-            print(serialized_data.data,"karthaveeeeeee ingalu katholeee")
+            print(serialized_data.data,"ingalu katholeee")
             return Response({
                 "message": "success", "userdata": serialized_data.data,"refresh": str(refresh),"access": str(refresh.access_token),
                 })
@@ -112,6 +112,7 @@ class CreateView(APIView):
         serialized=UserProfileSerializer(userobj)
         return Response({"message":"success","data":serialized.data})
     
+
 
 class GetEditView(APIView):
     def get(self,request,id):
